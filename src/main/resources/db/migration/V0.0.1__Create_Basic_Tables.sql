@@ -2,13 +2,6 @@ create database if not exists javastack;
 
 use javastack;
 
-create table if not exists Story(
-	id int NOT NULL AUTO_INCREMENT,
-	dateCreated bigint,
-	content varchar(225),
-	PRIMARY KEY (id)
-)ENGINE=INNODB;
-
 create table if not exists Puzzle(
 	id int NOT NULL AUTO_INCREMENT,
 	dateCreated bigint,

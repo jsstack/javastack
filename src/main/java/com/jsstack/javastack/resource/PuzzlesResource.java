@@ -1,16 +1,13 @@
 package com.jsstack.javastack.resource;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -32,10 +29,10 @@ public class PuzzlesResource {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Puzzle addPuzzle(@FormParam("imageId") int imageId) {
-		System.out.println("create puzzle with imageId=" + imageId);
+	public Puzzle addPuzzle(Puzzle p) {
+		System.out.println("create puzzle with imageId=" + p.getImageId());
 		Puzzle puzzle = new Puzzle();
-		puzzle.setImageId(imageId);
+		puzzle.setImageId(p.getImageId());
 		puzzle.setDateCreated(new Date().getTime());
 
 		int id = dao.insert(puzzle);
@@ -45,9 +42,9 @@ public class PuzzlesResource {
 		return puzzle;
 	}
 
-	@Path("puzzleId")
-	public PuzzleResource getPuzzle(@FormParam("puzzleId") int puzzleId) {
-		System.out.println("get puzzle with puzzleId=" + puzzleId);
+	@Path("{id}")
+	public PuzzleResource getPuzzle(@PathParam("id") int puzzleId) {
+		System.out.println("=============================" + puzzleId);
 		return new PuzzleResource(puzzleId);
 	}
 }

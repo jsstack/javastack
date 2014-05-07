@@ -11,6 +11,16 @@
 	</welcome-file-list>
 	
 	<servlet>
+		<servlet-name>Initialization</servlet-name>
+		<servlet-class>com.jsstack.javastack.Initialization</servlet-class>
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.jsstack.javastack</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>Web Application</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>

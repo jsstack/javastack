@@ -36,4 +36,8 @@ public class Puzzle implements Serializable {
 		this.imageId = imageId;
 	}
 
+	@Override
+	public String toString() {
+		return id + " " + imageId + " " + dateCreated;
+	}
 }

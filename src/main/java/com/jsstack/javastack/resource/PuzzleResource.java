@@ -23,6 +23,7 @@ public class PuzzleResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Puzzle getPuzzle() {
+		System.out.println("get puzzle with puzzleId=" + puzzleId);
 		return dao.findById(Puzzle.class, puzzleId);
 	}
 
@@ -34,6 +35,7 @@ public class PuzzleResource {
 
 	@DELETE
 	public void deletePuzzle() {
+		System.out.println("delete puzzle with puzzleId=" + puzzleId);
 		if (dao.delete(Puzzle.class, puzzleId) <= 0) {
 			throw new NotFoundException("No such Puzzle.");
 		}

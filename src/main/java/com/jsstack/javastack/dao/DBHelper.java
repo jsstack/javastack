@@ -24,6 +24,16 @@ import org.apache.commons.pool2.impl.GenericObjectPool;
 
 public class DBHelper {
 	private static DataSource dataSource;
+	
+	public static DataSource getDataSource () {
+		if(dataSource == null) {
+			initParameters();
+			System.out.println("Initialize dbcp...");
+			DBHelper.dataSource = setupDataSource();
+		}
+		
+		return dataSource;
+	}
 
 	private static String URL;
 	private static String USER_NAME;
@@ -51,14 +61,7 @@ public class DBHelper {
 	}
 
 	public static QueryRunner getQueryRunner() {
-		if (DBHelper.dataSource == null) {
-			initParameters();
-			DBHelper.dataSource = setupDataSource();
-
-			System.out.println("Initialize dbcp...");
-		}
-
-		return new QueryRunner(DBHelper.dataSource);
+		return new QueryRunner(getDataSource());
 	}
 
 	public static ResultSet getColumns(String tableName) throws SQLException {
@@ -77,7 +80,7 @@ public class DBHelper {
 	}
 
 	private static DatabaseMetaData getMetaData() throws SQLException {
-		return DBHelper.dataSource.getConnection().getMetaData();
+		return getDataSource().getConnection().getMetaData();
 	}
 
 	private static void initParameters() {
@@ -175,7 +178,7 @@ public class DBHelper {
 	}
 
 	public static int insert(String sql, Object... params) throws SQLException {
-		Connection conn = dataSource.getConnection();
+		Connection conn = getDataSource().getConnection();
 		if (conn == null) {
 			throw new SQLException("Null connection");
 		}

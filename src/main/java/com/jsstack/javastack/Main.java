@@ -21,6 +21,12 @@ public class Main {
 		System.setProperty("mysql-db", "javastack");
 		System.setProperty("mysql-username", "root");
 		System.setProperty("mysql-password", "jsstack");
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -48,6 +54,7 @@ public class Main {
 	 * @param args
 	 * @throws IOException
 	 */
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws IOException {
 		final HttpServer server = startServer();
 		System.out.println(String.format(
