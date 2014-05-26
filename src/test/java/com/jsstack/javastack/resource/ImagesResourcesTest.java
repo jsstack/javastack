@@ -35,7 +35,7 @@ public class ImagesResourcesTest {
 
 	@After
 	public void tearDown() {
-		server.shutdownNow();
+		server.stop();
 	}
 
 	@Test

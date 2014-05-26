@@ -12,26 +12,25 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp2.ConnectionFactory;
-import org.apache.commons.dbcp2.DriverManagerConnectionFactory;
-import org.apache.commons.dbcp2.PoolableConnection;
-import org.apache.commons.dbcp2.PoolableConnectionFactory;
-import org.apache.commons.dbcp2.PoolingDataSource;
+import org.apache.commons.pool.ObjectPool;
+import org.apache.commons.pool.impl.GenericObjectPool;
+import org.apache.commons.dbcp.ConnectionFactory;
+import org.apache.commons.dbcp.PoolingDataSource;
+import org.apache.commons.dbcp.PoolableConnectionFactory;
+import org.apache.commons.dbcp.DriverManagerConnectionFactory;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.pool2.ObjectPool;
-import org.apache.commons.pool2.impl.GenericObjectPool;
 
 public class DBHelper {
 	private static DataSource dataSource;
-	
-	public static DataSource getDataSource () {
-		if(dataSource == null) {
+
+	public static DataSource getDataSource() {
+		if (dataSource == null) {
 			initParameters();
 			System.out.println("Initialize dbcp...");
 			DBHelper.dataSource = setupDataSource();
 		}
-		
+
 		return dataSource;
 	}
 
@@ -43,19 +42,13 @@ public class DBHelper {
 	}
 
 	private static DataSource setupDataSource() {
+		ObjectPool connectionPool = new GenericObjectPool(null);
 		ConnectionFactory connectionFactory = new DriverManagerConnectionFactory(
 				URL, USER_NAME, PASSWORD);
-
 		PoolableConnectionFactory poolableConnectionFactory = new PoolableConnectionFactory(
-				connectionFactory, null);
-
-		ObjectPool<PoolableConnection> connectionPool = new GenericObjectPool<>(
-				poolableConnectionFactory);
-
+				connectionFactory, connectionPool, null, null, false, true);
 		poolableConnectionFactory.setPool(connectionPool);
-
-		PoolingDataSource<PoolableConnection> dataSource = new PoolingDataSource<>(
-				connectionPool);
+		PoolingDataSource dataSource = new PoolingDataSource(connectionPool);
 
 		return dataSource;
 	}

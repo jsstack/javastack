@@ -4,53 +4,59 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.jsstack.javastack.Main;
+import com.jsstack.javastack.model.Image;
 import com.jsstack.javastack.utils.FakeUtil;
 
 public class DaoTest {
 	private static IDao dao;
 
-	@Before
+	
+	//@Before
 	public void init() {
 		Main.initAll();
 		dao = new Dao();
 	}
 
-	@After
+	//@After
 	public void destory() {
-
 	}
 
-	@Test
+	//@Test
 	public void daoTest() {
-		Story s = new Story();
-		s.setDateCreated(FakeUtil.date().getTime());
-		s.setContent(FakeUtil.guid());
+		Image s = new Image();
+		s.setImagePath(FakeUtil.guid());
+		s.setThumbnailPath(FakeUtil.guid());
 		int id = dao.insert(s);
+		s.setId(id);
 
-		List<Story> result = dao.findAll(Story.class, null);
+		List<Image> result = dao.findAll(Image.class, null);
 		assertTrue(result.size() > 0);
 		System.out.println("abc");
-		Story n = dao.findById(Story.class, id);
+		Image n = dao.findById(Image.class, id);
 		assertTrue(n != null);
-		System.out.println(n.getDateCreated());
-		System.out.println(s.getDateCreated());
-		assertTrue(n.getDateCreated() == s.getDateCreated());
-		assertTrue(n.getContent().equals(s.getContent()));
-		n.setContent(FakeUtil.guid());
+		System.out.println(n.getId());
+		System.out.println(s.getImagePath());
+		System.out.println(s.getThumbnailPath());
+		assertTrue(n.getId() == s.getId());
+		assertTrue(n.getImagePath().equals(s.getImagePath()));
+		assertTrue(n.getThumbnailPath().equals(s.getThumbnailPath()));
 
-		System.out.println("123");
+		n.setImagePath(FakeUtil.guid());
+		
 		dao.update(n);
-		assertTrue(n.getDateCreated() == s.getDateCreated());
-		assertTrue(!n.getContent().equals(s.getContent()));
+		assertTrue(n.getId() == s.getId());
+		assertTrue(!n.getImagePath().equals(s.getImagePath()));
 
-		dao.delete(Story.class, id);
+		dao.delete(Image.class, id);
 
-		List<Story> nr = dao.findAll(Story.class, null);
+		List<Image> nr = dao.findAll(Image.class, null);
 		assertTrue(result.size() == nr.size() + 1);
 	}
 }
+
