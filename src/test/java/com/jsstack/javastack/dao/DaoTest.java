@@ -4,11 +4,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.glassfish.grizzly.http.server.HttpServer;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import com.jsstack.javastack.Main;
 import com.jsstack.javastack.model.Image;
 import com.jsstack.javastack.utils.FakeUtil;

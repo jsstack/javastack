@@ -12,12 +12,7 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.pool.ObjectPool;
-import org.apache.commons.pool.impl.GenericObjectPool;
-import org.apache.commons.dbcp.ConnectionFactory;
-import org.apache.commons.dbcp.PoolingDataSource;
-import org.apache.commons.dbcp.PoolableConnectionFactory;
-import org.apache.commons.dbcp.DriverManagerConnectionFactory;
+import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 
@@ -37,20 +32,23 @@ public class DBHelper {
 	private static String URL;
 	private static String USER_NAME;
 	private static String PASSWORD;
+	private static String DRIVER;
 
 	private DBHelper() {
 	}
 
 	private static DataSource setupDataSource() {
-		ObjectPool connectionPool = new GenericObjectPool(null);
-		ConnectionFactory connectionFactory = new DriverManagerConnectionFactory(
-				URL, USER_NAME, PASSWORD);
-		PoolableConnectionFactory poolableConnectionFactory = new PoolableConnectionFactory(
-				connectionFactory, connectionPool, null, null, false, true);
-		poolableConnectionFactory.setPool(connectionPool);
-		PoolingDataSource dataSource = new PoolingDataSource(connectionPool);
+		BasicDataSource ds = new BasicDataSource();
+		ds.setDriverClassName(DRIVER);
+		ds.setUsername(USER_NAME);
+		ds.setPassword(PASSWORD);
+		ds.setUrl(URL);
+		ds.setInitialSize(5);
+		ds.setMaxActive(100);
+		ds.setMaxIdle(30);
+		ds.setMaxWait(10000);
 
-		return dataSource;
+		return ds;
 	}
 
 	public static QueryRunner getQueryRunner() {
@@ -94,6 +92,7 @@ public class DBHelper {
 		URL = url.toString();
 		USER_NAME = ps.getProperty("mysql-username");
 		PASSWORD = ps.getProperty("mysql-password");
+		DRIVER = "com.mysql.jdbc.Driver";
 	}
 
 	private static boolean pmdKnownBroken = false;

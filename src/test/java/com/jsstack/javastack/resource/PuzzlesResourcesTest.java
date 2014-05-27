@@ -38,7 +38,7 @@ public class PuzzlesResourcesTest {
 
 	@After
 	public void tearDown() throws Exception {
-		server.stop();
+		server.shutdownNow();
 	}
 
 	@Test
