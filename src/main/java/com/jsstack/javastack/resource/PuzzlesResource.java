@@ -11,9 +11,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.jsstack.javastack.constant.Global;
 import com.jsstack.javastack.dao.Dao;
 import com.jsstack.javastack.dao.IDao;
 import com.jsstack.javastack.model.Puzzle;
+import com.jsstack.javastack.mq.MQ;
 
 @Path("puzzles")
 public class PuzzlesResource {
@@ -39,6 +41,8 @@ public class PuzzlesResource {
 
 		puzzle.setId(id);
 
+		MQ.push(Global.PuzzlesResource.PARSE_PUZZLE_MQ, String.valueOf(id));
+		
 		return puzzle;
 	}
 
@@ -46,5 +50,11 @@ public class PuzzlesResource {
 	public PuzzleResource getPuzzle(@PathParam("id") int puzzleId) {
 		System.out.println("=============================" + puzzleId);
 		return new PuzzleResource(puzzleId);
+	}
+	
+	@Path("{id}/pieces")
+	public PiecesResource getPieces(@PathParam("id") int puzzleId) {
+		System.out.println("=============================" + puzzleId);
+		return new PiecesResource(puzzleId);
 	}
 }

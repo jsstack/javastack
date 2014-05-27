@@ -9,6 +9,7 @@ import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import com.jsstack.javastack.dao.DBHelper;
+import com.jsstack.javastack.worker.WorkerManager;
 
 /**
  * Main class.
@@ -31,6 +32,8 @@ public class Main {
 		System.setProperty("mysql-db", "javastack");
 		System.setProperty("mysql-username", "root");
 		System.setProperty("mysql-password", "jsstack");
+		System.setProperty("fs", "disk");
+		System.setProperty("dfs-base", "C:\\FileStorage\\");
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -44,6 +47,9 @@ public class Main {
 		flyway.setDataSource(DBHelper.getDataSource());
 
 		flyway.migrate();
+		
+		
+		WorkerManager.start();
 	}
 
 	/**

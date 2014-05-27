@@ -23,6 +23,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>io.iron.ironmq</groupId>
+			<artifactId>ironmq</artifactId>
+			<version>0.0.17</version>
+		</dependency>
+		<dependency>
 			<groupId>commons-dbutils</groupId>
 			<artifactId>commons-dbutils</artifactId>
 			<version>1.5</version>
