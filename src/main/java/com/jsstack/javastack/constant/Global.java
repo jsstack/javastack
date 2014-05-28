@@ -9,4 +9,8 @@ public class Global {
 	public static class PuzzlesResource {
 		public static String PARSE_PUZZLE_MQ = "PARSE_PUZZLE_MQ";
 	}
+
+	public static class ImageService {
+		public static String PARSE_IMAGE_MQ = "PARSE_IMAGE_MQ";
+	}
 }
