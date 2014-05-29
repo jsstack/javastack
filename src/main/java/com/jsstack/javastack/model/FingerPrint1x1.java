@@ -10,9 +10,9 @@ public class FingerPrint1x1 implements Serializable {
 
 	private int id;
 	private int imageId;
-	private int h1;
-	private int s1;
-	private int v1;
+	private float h1;
+	private float s1;
+	private float v1;
 
 	public int getId() {
 		return id;
@@ -30,27 +30,27 @@ public class FingerPrint1x1 implements Serializable {
 		this.imageId = imageId;
 	}
 
-	public int getH1() {
+	public float getH1() {
 		return h1;
 	}
 
-	public void setH1(int h1) {
+	public void setH1(float h1) {
 		this.h1 = h1;
 	}
 
-	public int getS1() {
+	public float getS1() {
 		return s1;
 	}
 
-	public void setS1(int s1) {
+	public void setS1(float s1) {
 		this.s1 = s1;
 	}
 
-	public int getV1() {
+	public float getV1() {
 		return v1;
 	}
 
-	public void setV1(int v1) {
+	public void setV1(float v1) {
 		this.v1 = v1;
 	}
 

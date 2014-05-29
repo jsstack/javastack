@@ -10,15 +10,15 @@ public class FingerPrintGray3x3 implements Serializable {
 
 	private int id;
 	private int imageId;
-	private int gray1;
-	private int gray2;
-	private int gray3;
-	private int gray4;
-	private int gray5;
-	private int gray6;
-	private int gray7;
-	private int gray8;
-	private int gray9;
+	private float v1;
+	private float v2;
+	private float v3;
+	private float v4;
+	private float v5;
+	private float v6;
+	private float v7;
+	private float v8;
+	private float v9;
 
 	public int getId() {
 		return id;
@@ -36,76 +36,76 @@ public class FingerPrintGray3x3 implements Serializable {
 		this.imageId = imageId;
 	}
 
-	public int getGray1() {
-		return gray1;
+	public float getV1() {
+		return v1;
 	}
 
-	public void setGray1(int gray1) {
-		this.gray1 = gray1;
+	public void setV1(float v1) {
+		this.v1 = v1;
 	}
 
-	public int getGray2() {
-		return gray2;
+	public float getV2() {
+		return v2;
 	}
 
-	public void setGray2(int gray2) {
-		this.gray2 = gray2;
+	public void setV2(float v2) {
+		this.v2 = v2;
 	}
 
-	public int getGray3() {
-		return gray3;
+	public float getV3() {
+		return v3;
 	}
 
-	public void setGray3(int gray3) {
-		this.gray3 = gray3;
+	public void setV3(float v3) {
+		this.v3 = v3;
 	}
 
-	public int getGray4() {
-		return gray4;
+	public float getV4() {
+		return v4;
 	}
 
-	public void setGray4(int gray4) {
-		this.gray4 = gray4;
+	public void setV4(float v4) {
+		this.v4 = v4;
 	}
 
-	public int getGray5() {
-		return gray5;
+	public float getV5() {
+		return v5;
 	}
 
-	public void setGray5(int gray5) {
-		this.gray5 = gray5;
+	public void setV5(float v5) {
+		this.v5 = v5;
 	}
 
-	public int getGray6() {
-		return gray6;
+	public float getV6() {
+		return v6;
 	}
 
-	public void setGray6(int gray6) {
-		this.gray6 = gray6;
+	public void setV6(float v6) {
+		this.v6 = v6;
 	}
 
-	public int getGray7() {
-		return gray7;
+	public float getV7() {
+		return v7;
 	}
 
-	public void setGray7(int gray7) {
-		this.gray7 = gray7;
+	public void setV7(float v7) {
+		this.v7 = v7;
 	}
 
-	public int getGray8() {
-		return gray8;
+	public float getV8() {
+		return v8;
 	}
 
-	public void setGray8(int gray8) {
-		this.gray8 = gray8;
+	public void setV8(float v8) {
+		this.v8 = v8;
 	}
 
-	public int getGray9() {
-		return gray9;
+	public float getV9() {
+		return v9;
 	}
 
-	public void setGray9(int gray9) {
-		this.gray9 = gray9;
+	public void setV9(float v9) {
+		this.v9 = v9;
 	}
 
 }

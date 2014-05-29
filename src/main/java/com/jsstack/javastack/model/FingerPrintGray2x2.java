@@ -10,10 +10,10 @@ public class FingerPrintGray2x2 implements Serializable {
 
 	private int id;
 	private int imageId;
-	private int gray1;
-	private int gray2;
-	private int gray3;
-	private int gray4;
+	private float v1;
+	private float v2;
+	private float v3;
+	private float v4;
 
 	public int getId() {
 		return id;
@@ -31,36 +31,35 @@ public class FingerPrintGray2x2 implements Serializable {
 		this.imageId = imageId;
 	}
 
-	public int getGray1() {
-		return gray1;
+	public float getV1() {
+		return v1;
 	}
 
-	public void setGray1(int gray1) {
-		this.gray1 = gray1;
+	public void setV1(float v1) {
+		this.v1 = v1;
 	}
 
-	public int getGray2() {
-		return gray2;
+	public float getV2() {
+		return v2;
 	}
 
-	public void setGray2(int gray2) {
-		this.gray2 = gray2;
+	public void setV2(float v2) {
+		this.v2 = v2;
 	}
 
-	public int getGray3() {
-		return gray3;
+	public float getV3() {
+		return v3;
 	}
 
-	public void setGray3(int gray3) {
-		this.gray3 = gray3;
+	public void setV3(float v3) {
+		this.v3 = v3;
 	}
 
-	public int getGray4() {
-		return gray4;
+	public float getV4() {
+		return v4;
 	}
 
-	public void setGray4(int gray4) {
-		this.gray4 = gray4;
+	public void setV4(float v4) {
+		this.v4 = v4;
 	}
-
 }

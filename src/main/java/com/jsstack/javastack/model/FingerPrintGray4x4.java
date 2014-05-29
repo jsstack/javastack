@@ -10,22 +10,22 @@ public class FingerPrintGray4x4 implements Serializable {
 
 	private int id;
 	private int imageId;
-	private int gray1;
-	private int gray2;
-	private int gray3;
-	private int gray4;
-	private int gray5;
-	private int gray6;
-	private int gray7;
-	private int gray8;
-	private int gray9;
-	private int gray10;
-	private int gray11;
-	private int gray12;
-	private int gray13;
-	private int gray14;
-	private int gray15;
-	private int gray16;
+	private float v1;
+	private float v2;
+	private float v3;
+	private float v4;
+	private float v5;
+	private float v6;
+	private float v7;
+	private float v8;
+	private float v9;
+	private float v10;
+	private float v11;
+	private float v12;
+	private float v13;
+	private float v14;
+	private float v15;
+	private float v16;
 
 	public int getId() {
 		return id;
@@ -43,132 +43,132 @@ public class FingerPrintGray4x4 implements Serializable {
 		this.imageId = imageId;
 	}
 
-	public int getGray1() {
-		return gray1;
+	public float getV1() {
+		return v1;
 	}
 
-	public void setGray1(int gray1) {
-		this.gray1 = gray1;
+	public void setV1(float v1) {
+		this.v1 = v1;
 	}
 
-	public int getGray2() {
-		return gray2;
+	public float getV2() {
+		return v2;
 	}
 
-	public void setGray2(int gray2) {
-		this.gray2 = gray2;
+	public void setV2(float v2) {
+		this.v2 = v2;
 	}
 
-	public int getGray3() {
-		return gray3;
+	public float getV3() {
+		return v3;
 	}
 
-	public void setGray3(int gray3) {
-		this.gray3 = gray3;
+	public void setV3(float v3) {
+		this.v3 = v3;
 	}
 
-	public int getGray4() {
-		return gray4;
+	public float getV4() {
+		return v4;
 	}
 
-	public void setGray4(int gray4) {
-		this.gray4 = gray4;
+	public void setV4(float v4) {
+		this.v4 = v4;
 	}
 
-	public int getGray5() {
-		return gray5;
+	public float getV5() {
+		return v5;
 	}
 
-	public void setGray5(int gray5) {
-		this.gray5 = gray5;
+	public void setV5(float v5) {
+		this.v5 = v5;
 	}
 
-	public int getGray6() {
-		return gray6;
+	public float getV6() {
+		return v6;
 	}
 
-	public void setGray6(int gray6) {
-		this.gray6 = gray6;
+	public void setV6(float v6) {
+		this.v6 = v6;
 	}
 
-	public int getGray7() {
-		return gray7;
+	public float getV7() {
+		return v7;
 	}
 
-	public void setGray7(int gray7) {
-		this.gray7 = gray7;
+	public void setV7(float v7) {
+		this.v7 = v7;
 	}
 
-	public int getGray8() {
-		return gray8;
+	public float getV8() {
+		return v8;
 	}
 
-	public void setGray8(int gray8) {
-		this.gray8 = gray8;
+	public void setV8(float v8) {
+		this.v8 = v8;
 	}
 
-	public int getGray9() {
-		return gray9;
+	public float getV9() {
+		return v9;
 	}
 
-	public void setGray9(int gray9) {
-		this.gray9 = gray9;
+	public void setV9(float v9) {
+		this.v9 = v9;
 	}
 
-	public int getGray10() {
-		return gray10;
+	public float getV10() {
+		return v10;
 	}
 
-	public void setGray10(int gray10) {
-		this.gray10 = gray10;
+	public void setV10(float v10) {
+		this.v10 = v10;
 	}
 
-	public int getGray11() {
-		return gray11;
+	public float getV11() {
+		return v11;
 	}
 
-	public void setGray11(int gray11) {
-		this.gray11 = gray11;
+	public void setV11(float v11) {
+		this.v11 = v11;
 	}
 
-	public int getGray12() {
-		return gray12;
+	public float getV12() {
+		return v12;
 	}
 
-	public void setGray12(int gray12) {
-		this.gray12 = gray12;
+	public void setV12(float v12) {
+		this.v12 = v12;
 	}
 
-	public int getGray13() {
-		return gray13;
+	public float getV13() {
+		return v13;
 	}
 
-	public void setGray13(int gray13) {
-		this.gray13 = gray13;
+	public void setV13(float v13) {
+		this.v13 = v13;
 	}
 
-	public int getGray14() {
-		return gray14;
+	public float getV14() {
+		return v14;
 	}
 
-	public void setGray14(int gray14) {
-		this.gray14 = gray14;
+	public void setV14(float v14) {
+		this.v14 = v14;
 	}
 
-	public int getGray15() {
-		return gray15;
+	public float getV15() {
+		return v15;
 	}
 
-	public void setGray15(int gray15) {
-		this.gray15 = gray15;
+	public void setV15(float v15) {
+		this.v15 = v15;
 	}
 
-	public int getGray16() {
-		return gray16;
+	public float getV16() {
+		return v16;
 	}
 
-	public void setGray16(int gray16) {
-		this.gray16 = gray16;
+	public void setV16(float v16) {
+		this.v16 = v16;
 	}
 
 }
