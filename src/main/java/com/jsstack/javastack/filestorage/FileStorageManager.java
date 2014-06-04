@@ -6,8 +6,8 @@ public class FileStorageManager {
 		if (fsSetting.equals("disk")) {
 			String basePath = System.getProperty("dfs-base");
 			return new DiskFileStorage(basePath);
+		} else {
+			return new AliyunStorage();
 		}
-
-		return null;
 	}
 }

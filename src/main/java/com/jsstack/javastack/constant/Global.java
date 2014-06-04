@@ -13,4 +13,11 @@ public class Global {
 	public static class ImageService {
 		public static String PARSE_IMAGE_MQ = "PARSE_IMAGE_MQ";
 	}
+
+	public static class AliyunStorage {
+		public static String OBJECT_NAME_PREFIX ="mpi_";
+		public static String BUCKET_NAME ="magic-puzzle-images";
+		public static String ACCESS_KEY_ID = "OJdbPhu1V3ONZ7C5";
+		public static String ACCESS_KEY_SECRET = "hTWEIoqsc3d4qDACPoXt2muKMa1pgS";
+	}
 }

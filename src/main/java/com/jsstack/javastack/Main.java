@@ -24,16 +24,16 @@ public class Main {
 		if (inited) {
 			return;
 		}
-		
+
 		inited = true;
-		
+
 		System.setProperty("mysql-host", "127.0.0.1");
 		System.setProperty("mysql-port", "3306");
 		System.setProperty("mysql-db", "javastack");
 		System.setProperty("mysql-username", "root");
 		System.setProperty("mysql-password", "jsstack");
-		System.setProperty("fs", "disk");
-		System.setProperty("dfs-base", "C:\\FileStorage\\");
+		// System.setProperty("fs", "disk");
+		// System.setProperty("dfs-base", "C:\\FileStorage\\");
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -47,8 +47,7 @@ public class Main {
 		flyway.setDataSource(DBHelper.getDataSource());
 
 		flyway.migrate();
-		
-		
+
 		WorkerManager.start();
 	}
 
